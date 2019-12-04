@@ -1,0 +1,42 @@
+<% include ../includes/head.ejs %>
+    
+<div class="main" id="main-content" role="main" style="padding-bottom: 40px;">
+  <div class="headerless"></div>
+
+  <div style="color:#0c304a; font-family: 'Open Sans','Verdana',sans-serif; font-size: 2em; text-align: center;"><b>Staff Pengajar JPTEI</b></div>
+    <table class="table">
+      <% for(let d of dosen) { %>
+          <tr>
+            <th scope="col">
+              <div style="background-image: url('/<%= d.foto %>');background-size:cover;height:200.3px;width:180.3px;"  class="center"></div>
+            </th>
+            <th scope="row" style="color: #4e84c4;font-family: 'Open Sans','Verdana',sans-serif;font-size: 1.2em;line-height: 1.22222em;">
+              <div style=" padding-bottom: 15px;">
+              <a href="/profile/<%= d.nip %>" style="text-decoration: none;">
+              <%= d.nama %></a>
+            </div>
+              <div scope="row" style="color: #0c304a;font-family: 'Open Sans','Verdana',sans-serif;font-size: 14px; padding-bottom: 15px;">
+                <%= d.nama_jabatan %>
+              </div>
+              <div scope="row" style="color: #0c304a;font-family: 'Open Sans','Verdana',sans-serif;font-size: 14px; padding-bottom: 15px;">
+                <%= d.nip %>
+              </div>
+              <div scope="row" style="color: #0c304a;font-family: 'Open Sans','Verdana',sans-serif;font-size: 14px; padding-bottom: 15px;">
+                <%= d.email %>
+              </div>
+            </th>
+          </tr>
+        
+
+        <tr>
+          
+        </tr>
+        <tr>
+          
+        </tr>
+        <tr>
+      <% } %>
+    </table>
+</div>
+
+<% include ../includes/foot.ejs %>

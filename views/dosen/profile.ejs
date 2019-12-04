@@ -1,0 +1,114 @@
+<% include ../includes/head.ejs %> 										                
+    <div class="main" id="main-content" role="main">
+                <div class="headerless"></div>
+<header class="profile-header">
+  <div class="profile-header__summary">
+      <div class="profile-header__photo" style="background-image: url('/<%= dosen.foto %>');"></div>
+    <h1>
+      <%= dosen.nama %>
+    </h1>
+  <p>
+      <em><%= dosen.nama_jabatan %></em>
+    </p>
+
+  </div>
+  <div class="profile-header__info">
+    <ul class="profile-header__contact">
+        
+      <li>
+        <span class="icon--hide-label" data-icon="phone" data-bound-iconhelper="ck2wojcrh0003385xoux2f9l0"><svg class="icon" role="img" focusable="false"><use xlink:href="#icon-phone"></use></svg><span class="icon-label">Phone</span></span> <a href="tel:<%= dosen.no_hp %>"><%= dosen.no_hp %></a>
+      </li>
+        
+      <li>
+        <span class="icon--hide-label" data-icon="mail" data-bound-iconhelper="ck2wojcri0004385x2qhdims8"><svg class="icon" role="img" focusable="false"><use xlink:href="#icon-mail"></use></svg><span class="icon-label">Email</span></span> <a href="mailto:<%= dosen.email %>"><%= dosen.email %></a>
+      </li>
+      
+      
+    </ul>
+    <ul class="profile-header__location">
+      <li>
+        <em>NIP:</em>  <%= dosen.nip %>
+      </li>
+      <li>
+        <em>Jabatan:</em>  <%= dosen.nama_jabatan %>
+      </li>
+      <li>
+        <em>Golongan:</em> <%= dosen.nama_golongan %>
+      </li>
+    </ul>
+  </div>
+</header>
+<h2>Keahlian</h2>
+<ul>
+  <% for(let khl of keahlian) { %>
+    <li><%= khl.nama_keahlian %></li>
+  <% } %>
+</ul>
+<h2>Penelitian</h2>
+<ul>
+  <% for(let p of penelitian) { %>
+    <li><a href="/penelitian/<%= p.id_penelitian %>" style="text-decoration: none;"><%= p.judul %></a></li>
+  <% } %>
+</ul>
+</div>
+
+<h2>Pengalaman Mengajar</h2>
+<ul>
+    <table border="1" >
+      <tr>
+        <th>Mata Kuliah</th>
+        <th>Jenjang</th>
+        <th>Tahun</th>
+        <th>Jurusan</th>
+      </tr>
+      <% for(let mk of makul) { %>
+        <tr>
+          <td><%= mk.nama_makul %></td>
+          <td><%= mk.nama_jenjang %></td>
+          <td><%= mk.tahun %></td>
+          <td><%= mk.nama_jurusan %></td>
+        </tr>
+      <% } %>
+    </table>
+</ul>
+<!-- <p><a href="https://ms.unimelb.edu.au/people/publications?id=2598" class="button-small with-arrow brand">View all</a></p> -->
+<h2>Pendidikan</h2>
+<ul>
+    <table border="1">
+      <tr>
+        <th>Jenjang</th>
+        <th>Jurusan</th>
+        <th>Universitas</th>
+        <th>Tahun Lulus</th>
+      </tr>
+      <% for(let pend of pendidikan) { %>
+        <tr>
+          <td><%= pend.nama_jenjang %></td>
+          <td><%= pend.nama_jurusan %></td>
+          <td><%= pend.nama_universitas %></td>
+          <td><%= pend.tahun_lulus %></td>
+        </tr>
+      <% } %>
+    </table>
+</ul>
+
+<h2>Kegiatan Professional</h2>
+<ul>
+    <table border="1">
+      <tr>
+        <th>Nama Kegiatan</th>
+        <th>Tempat</th>
+        <th>Tahun</th>
+      </tr>
+      <% for(let train of training) { %>
+        <tr>
+          <td><%= train.nama_kegiatan %></td>
+          <td><%= train.tempat %></td>
+          <td><%= train.tahun %></td>
+        </tr>
+      <% } %>
+    </table>
+</ul>
+
+
+<% include ../includes/foot.ejs %>

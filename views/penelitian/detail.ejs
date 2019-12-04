@@ -1,0 +1,33 @@
+<% include ../includes/head.ejs %>
+  										                
+<div class="main" id="main-content" role="main">
+  <header class="image" style="background-image: url(img/bg.jpg);">
+    <div class="mid-align blurred">
+      <h1><%= pageTitle %></h1>
+    </div>
+</header>
+
+<h1 class="aligned-title"><%= penelitian.judul %></h1>
+
+<h2 id="academics">Dosen Terkait</h2>
+<% for(let d of dosen) { %>
+<p><a href="/profile/<%= d.nip %>" style="text-decoration: none;"><b><%= d.nama %></b></a> (<%= d.nama_jabatan %>)
+<!-- <br>
+<span style="display:block;margin-left: 2em">Keahlian: <% for(let k of keahlian) { %><i><%= k.nama_keahlian %>, </i> <% } %></span> -->
+<% } %>
+<br>
+</p>
+
+<h2 id="fellows">Tahun</h2>
+<p>
+  <%= penelitian.tahun %>
+</p>
+
+<h2 id="fellows">Sumber Dana</h2>
+<p style="padding-bottom: 70px;">
+  <%= penelitian.nama_sumber_dana %>
+</p>
+
+</div>
+
+<% include ../includes/foot.ejs %>
