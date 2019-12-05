@@ -1,0 +1,9 @@
+
+designCheck=document.querySelector('meta[name="design"]');if(designCheck.getAttribute('content')==='latestDesign'){version='';styles=document.styleSheets;for(i=0;i<styles.length;i++){if(styles[i].href!==null){if(styles[i].href.includes('uom.css')){urlArray=styles[i].href.split("/");version=urlArray[urlArray.length-2]}}}
+var div=document.createElement("div");var node=document.createTextNode("Currently viewing design "+version);div.appendChild(node);div.id="designSign";var element=document.getElementById("main-content");element.appendChild(div);}
+function designSwitch(){name='latestDesign'+"=";decodedCookie=decodeURIComponent(document.cookie);ca=decodedCookie.split(';');result='';for(i=0;i<ca.length;i++){c=ca[i];while(c.charAt(0)==' '){c=c.substring(1);}
+if(c.indexOf(name)==0){result=c.substring(name.length,c.length);}}
+if(result==='true'){document.cookie='latestDesign=false; path=/';}else{document.cookie='latestDesign=true; path=/';}
+srcTag=window.location.href;unhashed=srcTag.replace(window.location.hash,"");if(srcTag.match(/(\/_nocache|\/_recache)/)){window.location.href=unhashed;}else{var lastChar=unhashed.substr(-1);if(lastChar!='/'){unhashed=unhashed+'/';}
+window.location.href=unhashed+"_recache";}
+void 0}

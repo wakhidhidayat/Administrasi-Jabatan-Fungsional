@@ -70,5 +70,40 @@ module.exports = {
         })
         .catch(e => console.log(e));
     }, 
+
+    getFilter(req,res) {
+        const jbtn = req.query.jabatan;
+        const khl = req.query.keahlian;
+        if(jbtn == null) {
+            Dosen.filterKeahlian(khl)
+            .then(([result]) => {
+                res.render('dosen/index', {
+                    pageTitle: 'Staff JPTEI UNY',
+                    dosen: result
+                });
+            })
+            .catch(e => console.log(e));
+        } else if(khl == null) {
+            Dosen.filterJabatan(jbtn)
+            .then(([result]) => {
+                res.render('dosen/index', {
+                    pageTitle: 'Staff JPTEI UNY',
+                    dosen: result
+                });
+            })
+            .catch(e => console.log(e));
+        } else {
+            Dosen.filter(jbtn,khl)
+            .then(([result]) => {
+                res.render('dosen/index', {
+                    pageTitle: 'Staff JPTEI UNY',
+                    dosen: result,
+                });
+                console.log(result);
+            })
+            .catch(e => console.log(e));
+        }
+    }
+    
 }
 

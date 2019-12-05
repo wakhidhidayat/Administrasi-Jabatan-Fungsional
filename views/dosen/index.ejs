@@ -4,11 +4,23 @@
   <div class="headerless"></div>
 
   <div style="color:#0c304a; font-family: 'Open Sans','Verdana',sans-serif; font-size: 2em; text-align: center;"><b>Staff Pengajar JPTEI</b></div>
+  <form action="/filter" method="GET">
+    <input type="radio" name="jabatan" value="1">Lektor Kepala <br>
+    <input type="radio" name="jabatan" value="2">Asisten Ahli <br>
+    <input type="radio" name="jabatan" value="3">Lektor <br>
+    <br>
+    <input type="checkbox" name="keahlian" value="3">Jaringan Komputer <br>
+    <input type="checkbox" name="keahlian" value="4">Elektronika <br>
+    <input type="checkbox" name="keahlian" value="5">Pendidikan Teknologi <br>
+    <input type="checkbox" name="keahlian" value="6">Komunikasi Data <br>
+    <input type="submit" value="filter">
+  </form>
+  
     <table class="table">
       <% for(let d of dosen) { %>
           <tr>
             <th scope="col">
-              <div style="background-image: url('/<%= d.foto %>');background-size:cover;height:200.3px;width:180.3px;"  class="center"></div>
+              <a href="/profile/<%= d.nip %>"><div style="background-image: url('/<%= d.foto %>');background-size:cover;height:200.3px;width:180.3px;"  class="center"></div></a>
             </th>
             <th scope="row" style="color: #4e84c4;font-family: 'Open Sans','Verdana',sans-serif;font-size: 1.2em;line-height: 1.22222em;">
               <div style=" padding-bottom: 15px;">

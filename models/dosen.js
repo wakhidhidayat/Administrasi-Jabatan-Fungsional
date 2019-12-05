@@ -3,7 +3,9 @@ const db = require('../database/adm-jbtn');
 module.exports = class Dosen {
 
     static fetchIndex() {
-        return db.execute("SELECT nip,nama,email,foto,nama_jabatan FROM dosen JOIN jabatan ON dosen.id_jabatan = jabatan.id_jabatan");
+        return db.execute(
+            "SELECT nip,nama,email,foto,nama_jabatan FROM dosen JOIN jabatan ON dosen.id_jabatan = jabatan.id_jabatan"
+            );
     };  
     
     static fetchProfile(nip) {
@@ -50,7 +52,28 @@ module.exports = class Dosen {
 
     static search(q) {
         return db.execute(
-            "SELECT * FROM dosen WHERE nama LIKE '%"+[q]+"%'"
+            "SELECT * FROM dosen WHERE nama LIKE '%"+[q]+"%' OR nip LIKE '%"+[q]+"%'"
+        );
+    };
+
+    static filter(jabatan,keahlian) {
+        return db.execute(
+            "SELECT * FROM dosen JOIN keahlian_dosen ON dosen.nip=keahlian_dosen.nip WHERE dosen.id_jabatan=? AND keahlian_dosen.id_keahlian=?",
+            [jabatan,keahlian]
+        );
+    };
+
+    static filterJabatan(jabatan) {
+        return db.execute(
+            "SELECT * FROM dosen WHERE id_jabatan = ?",
+            [jabatan]
+        );
+    };
+
+    static filterKeahlian(keahlian) {
+        return db.execute(
+            "SELECT * FROM dosen JOIN keahlian_dosen ON dosen.nip=keahlian_dosen.nip WHERE keahlian_dosen.id_keahlian=?",
+            [keahlian]
         );
     };
 
