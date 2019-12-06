@@ -6,8 +6,8 @@
   <div style="color: #0c304a; font-family: 'Roboto','Verdana',sans-serif; font-size: 2em; text-align: center;"><b>STAFF PENGAJAR JPTEI</b></div>
     <div style="float: left;">
       <div style="width: 300px; margin-top: 24px; margin-left: 38.5px; border: 1px solid lightgray; border-radius: 3px; color: #0c304a; border-bottom: 1px solid lightgray;">
-        <div style="background-color: #004576; color: white; padding: 10px; border-bottom: 1px solid lightgray; border-top-left-radius: 3px; border-top-right-radius: 3px;"><b>KATEGORI</b></div>
-        <form method="GET" action="/filter">
+        <div style="background-color: #004576; color: white; padding: 10px; border-bottom: 1px solid lightgray; border-top-left-radius: 3px; border-top-right-radius: 3px;"><b>FILTER</b></div>
+        <form method="GET" action="/dosen/filter">
           <div style="padding: 10px;">
             <div style="padding-bottom: 5px; color: #004576;">
               <b>Jabatan</b><br>
@@ -56,14 +56,14 @@
       <% for(let d of dosen) { %>
         <tr>
           <th scope="col">
-            <a href="/profile/<%= d.nip %>">
+            <a href="/dosen/profile/<%= d.nip %>">
               <div style="border: 1px solid lightgray; border-radius: 3px; background-image: url('/<%= d.foto %>');background-size:cover;height:200.3px;width:180.3px;" class="center"></div>
             </a>
           </th>
 
           <th scope="row" style="color: #4e84c4;font-family: 'Open Sans','Verdana',sans-serif;font-size: 1.2em;line-height: 1.22222em;">
             <div style=" padding-bottom: 15px;">
-              <a href="/profile/<%= d.nip %>" style="text-decoration: none;">
+              <a href="/dosen/profile/<%= d.nip %>" style="text-decoration: none;">
                 <%= d.nama %>
               </a>
             </div>

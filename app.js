@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 
 const dosenRouter = require('./routes/dosen');
 const penelitianRouter = require('./routes/penelitian');
+const indexRouter = require('./routes/index');
 
 const app = express();
 
@@ -15,7 +16,8 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.set('views','views');
 app.set('view engine','ejs');
 
-app.use(dosenRouter);
+app.use('/', indexRouter);
+app.use('/dosen', dosenRouter);
 app.use('/penelitian', penelitianRouter);
 
 app.listen(3000);
