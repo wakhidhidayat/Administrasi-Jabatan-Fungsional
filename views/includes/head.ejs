@@ -30,6 +30,7 @@
         </a>
         
         <!-- search -->
+        <% if(pageTitle != "Beranda Administrasi Jabatan Fungsional") { %>
         <nav class="page-header-tools">
           <a class="page-header-icon" href="" title="Search">
             <svg role="img" focusable="false">
@@ -38,6 +39,7 @@
           </a>
         </nav>
 
+        
         <div class="page-header-search">
           <form class="search" action="/dosen/search" method="GET">
             <fieldset>
@@ -68,6 +70,7 @@
             </a>
           </form>
         </div>
+        <% } %>
         
       </header>
     </div>

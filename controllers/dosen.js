@@ -7,7 +7,7 @@ module.exports = {
             res.render('dosen/index', {
                 pageTitle: 'Staff JPTEI UNY',
                 dosen: rows,
-                path: '/'
+                path: '/dosen'
             });
             console.log(rows);
         })
@@ -64,7 +64,7 @@ module.exports = {
             res.render('dosen/index', {
                 pageTitle: 'Staff JPTEI UNY',
                 dosen: result,
-                path: '/'
+                path: '/dosen'
             });
             console.log(result);
         })
